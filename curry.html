@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // var allScore = 0;
+    // var addScore = function(score){
+    //     allScore += score;
+    // }
+    // addScore(3);
+    // addScore(2);
+    // console.log(allScore);
+    // addScore(1);
+    // console.log(allScore);
+
+    // var curryScore = function(fn){
+    //     var _allScore = [];
+    //     return function(){
+    //         if(arguments.length === 0){
+    //             return fn.apply(null,_allScore);
+
+    //         }else{
+    //             _allScore = _allScore.concat([].slice.call(arguments));
+    //         }
+    //         // console.log(_allScore);
+            
+            
+    //     }
+    // }
+    // var allScore = 0;
+    // var curryAddScore = curryScore(function(){
+    //     for(var i=0;i<arguments.length;i++){
+    //         allScore += arguments[i];
+    //     }
+    // });
+
+    // curryAddScore(3);
+    // console.log(allScore);
+    // curryAddScore(2);
+    // console.log(allScore);
+    // curryAddScore(1);
+    // curryAddScore();
+    // console.log(allScore);
+
+    var curry =  function(fn){
+        var _args = [];
+        return function cb(){
+            if(arguments.length === 0){
+                return fn.apply(null,_args);
+            }
+            Array.prototype.push.apply(_args,[].slice.call(arguments));
+            return cb;
+        }
+       
+    }
+
+    function add(a,b,c){
+        console.log(a+b+c);
+        
+    }
+    var addCurry = curry(add);
+    addCurry(1)(2)(3)();
+    
+</script>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./static//js/jquery.min.js"></script>
+</head>
+<body>
+    <ul id="ul1"> 
+        <li> AAAAA</li>
+        <li title="hello">BBBBBB</li>
+        <li class="box">CCCCCCC</li>
+        <li title="hello"> DDDDDD</li>
+        <li class="box"> EEEEE</li>
+    </ul>
+    <br>
+    <br>
+    <ul id="ul2">
+        <li>aaaaa</li>
+        <li title="hello">bbbbb</li>
+        <li class="box">cccc</li>
+        <li title="two">dddd</li>
+    </ul>
+
+    <script type="text/javascript">
+
+    // 文档的增删改操作
+        //向id为ul1的ul下添加一个span（最后）
+        var $ul1 = $('#ul1');
+        $ul1.append('<span>append()添加的span</span>');
+        $('</br><span>appendTo()添加的span</span>').appendTo($ul1);
+        //向id为ul1的ul下添加一个span(最前)
+        $ul1.prepend(' </br><span>prepend()添加的span</span>');
+        $('<span>prependTo()添加的span</span>').prependTo($ul1);
+        //向id为ul1下的li(title为hello)的前面添加span
+        $('#ul1 li[title=hello]').before('<span>title=hello 使用before 添加span</span>')
+        //向id为ul1下的li(title为hello)的后面添加span
+        $ul1.children('li[title=hello]').after('<span>使用after添加的span</span>')
+        //将在id为ul2的ul下的li(title为hello)全部替换为p
+        $('#ul2>li[title=hello]').replaceWith('<p>使用replaceWith()替换的p</p>')
+        //移除id为ul2下的所有li
+        // $('#ul2').empty();//会将所有子元素移除
+        $('#ul2 > li').remove();  //只会删除li元素
+    </script>
+</body>
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./jquery-3.3.1.js" type="text/javascript"></script>
+</head>
+<style>
+    .focused {
+    background: #abcdef;
+}
+</style>
+<body>
+        <!-- <button>Change colors</button>
+        <span></span> 
+        <div></div> 
+        <div></div>
+        
+        <div></div> 
+        <div></div>
+        <div id="stop">Stop here</div> 
+        <div></div>
+        
+        <div></div>
+        <div></div> -->
+        <!-- <form action="">
+        用户名：<input type="text"><br>
+        密码：<input type="passward"><br>
+        爱好：
+        <input type="checkbox" checked="checked">篮球
+        <input type="checkbox" name="" id="" checked="checked"> 足球
+        <input type="checkbox" checked="checked">羽毛球<br>
+        性别:
+        <input type="radio" name="sex" value="male">女
+        <input type="radio" name="sex"  value="female" id="">男<br>
+        邮箱：
+        <input type="text" name="" id="" disabled="disabled"><br>
+        所在地：
+        <select name="" id="">
+            <option value="1">北京</option>
+            <option value="2" selected="selected">天津</option>
+            <option value="3"> 河北</option>
+        </select><br>
+        <input type="submit" value="提交">
+        <button value="123">123</button>
+       </form> -->
+       <!-- <ul>
+           <li>hello</li>
+           <li>hello</li>
+           <li>hello</li>
+       </ul> -->
+       <div id="content">
+        <input tabIndex="1">
+        <input tabIndex="2">
+        <select tabIndex="3">
+            <option>select menu</option>
+        </select>
+        <div tabIndex="4">
+            a div
+        </div>
+    </div>
+
+</body>
+<script type="text/javascript">
+    //   $(function(){  //绑定文档加载完成的监听
+    //     $('button').click(function(){
+    //         $('div').each(function(index,domEle){
+    //             $(domEle).css('background','yellow');
+    //             $(domEle).text('background yellow');
+    //             if($(this).is('#stop')){
+    //                 $('span').text('Stopped at div index #' + index);
+    //                 return this;
+    //             }
+    //         })
+    //     })
+
+    //   })  
+
+    // $(function(){
+    //     // 选择不可用的文本框
+    //     $(':text:disabled').css('background','red');
+    //     // 选择显示爱好的个数
+    //     console.log($(':checkbox:checked').length);
+    //     // 选择显示城市的名称
+    //     console.log($('select>option:selected').html());
+    //     $(':submit').click(function(){
+    //         var city = $('select>option:selected').html();
+    //         console.log(city);
+    //     })
+    //     console.log($(':submit').val());
+    // })
+
+        // var obj={
+        //     name:'Ariel',
+        //     setName:function(name){
+        //         this.name = name;
+        //     }
+        // }
+        // $.each(obj,function(key,value){
+        //     console.log(key,value);
+        // });
+        // $('ul li').addClass(function(){
+        //     return "item-" + $(this).index();
+        // })
+        $( "#content" ).delegate( "*", "focus blur", function( event ) {
+            var elem = $( this );
+            setTimeout(function() {
+             elem.toggleClass( "focused", elem.is( ":focus" ) );
+         }, 0);
+});
+</script>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #formDiv{
+            margin-top: 40px;
+            width: 300px;
+            height: 200px;
+            border: 1px solid black;
+        }
+        #formDiv > h4{
+            text-align: center
+        }
+        #employeeTable{
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+    <table id="employeeTable" border="1px">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Salary</th>
+            <th> </th>
+        </tr>
+        <tr>
+            <td>Tom</td>
+            <td>Tom@tom.com</td>
+            <td>5000</td>
+            <td><a href="deleteEmp?id=00">Delete</a></td>
+        </tr>
+    </table>
+<div id="formDiv">
+    <h4 >添加新员工</h4>
+    <table>
+        <tr>
+            <td class="word">name:</td>
+            <td class="inp">
+                <input type="text" name="empName" id="empName">
+            </td>
+        </tr>
+        <tr>
+            <td class="word">email:</td>
+            <td class="inp"> 
+                <input type="text" name="email" id="email">
+            </td>
+        </tr>
+        <tr>
+            <td class="word">salary:</td>
+            <td class="inp">
+                <input type="text" name="salary" id="salary">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" >
+                <button id="addEmpButton" value="abc">submit</button>
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
