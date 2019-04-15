@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./static//js/jquery.min.js"></script>
+    <style>
+        .out{
+            width: 100px;
+            height: 100px;
+            background: red;
+        }
+        .inner{
+            width: 60px;
+            height: 60px;
+            background: blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="out">
+        外部Div
+        <div class="inner">内部DIV</div>
+    </div>
+    <div class="divBtn">
+        <button id="btn1">取消绑定所有事件</button>
+        <button id="btn2">取消绑定mouseover事件</button>
+        <button id="btn3">测试事件坐标</button>
+        <a href="www.baidu.com" id="test4">百度一下</a>
+    </div>
+
+    <button id="old">.trigger("focus")</button>
+    <button id="new">.triggerHandler("focus")</button><br/><br/>
+    <input type="text" value="To Be Focused"/>
+<script type="text/javascript">
+    //trigger()和triggerHander事件的不同 triggerHander会触发后面的函数事件，但不会触发浏览器默认行为。
+    $("#old").click(function(){
+    $("input").trigger("focus");
+    });
+    $("#new").click(function(){
+    $("input").triggerHandler("focus");
+    });
+    $("input").focus(function(){
+    $("<span>Focused!</span>").appendTo("body").fadeOut(1000);
+    });
+
+    /*
+     需求：
+     1、给.out绑定点击监听
+     2、给.inner绑定鼠标移入移出的事件监听(用3种方法绑定)
+     3、点击btn1解除.inner上的所有事件监听
+     4、点击btn2解除.inner上的mouseover事件
+     5、点击btn3得到事件坐标
+     6、点击.inner区域，外部点击监听不响应
+     7、点击链接，如果当前时间是偶数不跳转
+    
+    */
+
+    //1、给.out绑定点击监听
+    // $('.out').on('click',function(){
+    //     console.log("给.out绑定点击监听");
+    // })
+    $('.out').click(function(){
+        console.log("click out");
+    })
+    //2、给.inner绑定鼠标移入移出的事件监听(用3种方法绑定)
+    $('.inner').mouseenter(function(){
+        console.log('mouse enter');
+    })
+    .mouseleave(function(){
+        console.log('mouse leave');
+    })
+    // $('.inner').hover(function(){
+    //     console.log('mouse enter');
+    // },function(){
+    //     console.log('mouse leave');
+    // })
+    //3、点击btn1解除.inner上的所有事件监听
+    $('#btn1').click(function(){
+        $('.inner').off();
+    })
+    //4、点击btn2解除.inner上的mouseover事件
+    $('#btn2').click(function(){
+        $('.inner').off('mouseenter');
+    })
+    //5、点击btn3得到事件坐标
+    $('#btn3').click(function(event){
+        console.log(event.offsetX,event.offsetY);  //原点为事件元素的左上角
+        console.log(event.clientX,event.clientY);   //原点为窗口的左上角
+        console.log(event.pageX,event.pageY);     //原点为页面的左上角
+    })
+    //6、点击.inner区域，外部点击监听不响应
+    $('.inner').click(function(event){
+        console.log('click inner');
+        //停止冒泡
+        event.stopPropagation();
+    })
+    //7、点击链接，如果当前时间是偶数不跳转
+    $('#test4').click(function(event){
+        if(Date.now()%2 == 0){
+            event.preventDefault();
+        }
+    })
+</script>
+</body>
+
+</html>
