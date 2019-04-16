@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        1、事件委托（委派/代理）
+         将多个子元素（li）的事件监听委托给父元素
+         监听回调是加在了父辈元素上
+         当操作任何一个子元素（li）时，事件会冒泡到父辈元素上
+         父辈元素不会直接处理事件，而是根据event.target得到发生事件的子元素li通过这个子元素来处理事件
+        2、事件委托的2方
+          委托方：业主 li
+          被委托方：中介 ul
+        3、使用事件委托的好处
+         添加新的子元素时，自动有响应处理
+         减少事件的监听数量 ：n==>1
+        4、jQuery的事件委派API
+         设置事件委托 ：$(parentSelector).delegate(childrenSelector,eventname,callback)
+         移除事件委托：$(parentSellector).undelegate(eventname)
+     -->
+
+     <ul>
+         <li>qqqqqqq</li>
+         <li>wwwwwww</li>
+         <li>eee</li>
+         <li>rrrr</li>
+     </ul>
+     <button id="btn1">添加元素</button>
+     <button id="btn2">删除ul上的事件委托的监听器</button>
+<script src="./static//js/jquery.min.js"></script>
+<script type="text/javascript">
+    $('ul').delegate('li','click',function(){
+        this.style.background = 'red';
+    })
+    $('#btn1').click(function(){
+        $('ul').append('<li>新增元素</li>')
+    })
+    $('#btn2').click(function(){
+        $('ul').undelegate('click');
+    })
+
+</script>
+
+</body>
+</html>
