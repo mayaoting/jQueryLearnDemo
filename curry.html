@@ -10,6 +10,8 @@
     
 </body>
 <script>
+    //柯里化
+    
     // var allScore = 0;
     // var addScore = function(score){
     //     allScore += score;
@@ -48,7 +50,7 @@
     // curryAddScore(1);
     // curryAddScore();
     // console.log(allScore);
-
+//柯里化一个通用的版本
     var curry =  function(fn){
         var _args = [];
         return function cb(){
