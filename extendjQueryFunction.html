@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <p>选择你的爱好</p>
+        <input type="checkbox" name="items" id="">篮球 
+        <input type="checkbox" name="items" id="">足球
+        <input type="checkbox" name="items" id="">乒乓球
+        <input type="checkbox" name="items" id="">羽毛球 <br>
+        <hr>
+        <input type="checkbox" name="" id="checkAll">全选
+        <input type="checkbox" name="" id="noCheck">全不选
+        <input type="checkbox" name="" id="revCheck">反选
+
+    </div>
+</body>
+<script src="static/js/jquery.min.js"></script>
+<script src="static/js/my_jQuery-plugins.js"></script>
+<script>
+   var left =  $.leftTrim("    werdfghs");
+   var right = $.rightTrim("asdfgh    ");
+   console.log($.min(3,5));
+   console.log($.max(3,5));
+   console.log("-----"+left+"------");
+   console.log("-----"+right+"------");
+   var $items = $(':checkbox[name=items]')
+   $('#checkAll').click(function(){
+        $items.checkedAll();
+   })
+   $('#noCheck').click(function(){
+        $items.noCheck();
+   })
+   $('#revCheck').click(function(){
+        $items.revCheck();
+   }) 
+    
+    
+
+</script>
+</html>

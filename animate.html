@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    .div1{
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        top: 50px;
+        left: 50px;
+        background:rebeccapurple;
+    }
+</style>
+<body>
+    <button class="btn1">慢慢淡出</button>
+    <button class="btn2">慢慢淡入</button>
+    <button class="btn3">淡出淡入切换</button>
+    <div class="div1">
+
+    </div>
+</body>
+<script src="static\js\jquery.min.js"></script>
+<script>
+    var $div1 = $('.div1');
+    $('.btn1').click(function(){
+        $div1.slideDown('slow','linear');
+    })
+    $('.btn2').click(function(){
+        $div1.slideUp('slow','linear');
+    })
+    $('.btn3').click(function(){
+        $div1.slideToggle('slow','linear');
+    })
+
+    
+</script>
+</html>
